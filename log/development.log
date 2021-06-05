@@ -2160,3 +2160,629 @@ Processing by PurchasesController#post_file as JS
 Completed 200 OK in 346ms (Views: 166.1ms | ActiveRecord: 34.7ms)
 
 
+app/helpers/application_helper.rb:7:in `current_user'
+app/helpers/application_helper.rb:13:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__1447283103021102154_70296573421400'
+<% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (Not enough or too many segments):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:4:in `current_user'
+app/helpers/application_helper.rb:10:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__1447283103021102154_70296680553040'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:13:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionView::Template::Error (Not enough or too many segments):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:5:in `current_user'
+app/helpers/application_helper.rb:11:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__1447283103021102154_70296679591060'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:14:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 3.1ms)
+
+
+  
+ActionView::Template::Error (Not enough or too many segments):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:5:in `current_user'
+app/helpers/application_helper.rb:11:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__1447283103021102154_70296675809700'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:15:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (Not enough or too many segments):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:5:in `current_user'
+app/helpers/application_helper.rb:11:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__1447283103021102154_70296672882320'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:16:52 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.3ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (Not enough or too many segments):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:7:in `current_user'
+app/helpers/application_helper.rb:13:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__1447283103021102154_47416497160400'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:18:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test.thedevchallenge@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:7
+  Rendered home/index.html.erb within layouts/application (493.0ms)
+Completed 200 OK in 625ms (Views: 589.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:19:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (Not enough or too many segments):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:7:in `current_user'
+app/helpers/application_helper.rb:13:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__1447283103021102154_70296573449180'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:21:52 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionView::Template::Error (Not enough or too many segments):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:7:in `current_user'
+app/helpers/application_helper.rb:13:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__1447283103021102154_70296738386920'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:23:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (Invalid segment encoding):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:7:in `current_user'
+app/helpers/application_helper.rb:13:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__1447283103021102154_70296573421400'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:26:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (Invalid segment encoding):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:7:in `current_user'
+app/helpers/application_helper.rb:13:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__943505975890539996_69978342558540'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:29:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (8.2ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (Invalid segment encoding):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:7:in `current_user'
+app/helpers/application_helper.rb:15:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__943505975890539996_69978342631860'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:31:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test.thedevchallenge@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:8
+  Rendered home/index.html.erb within layouts/application (405.8ms)
+Completed 200 OK in 546ms (Views: 507.3ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:41:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test.thedevchallenge@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:8
+  Rendered home/index.html.erb within layouts/application (33.2ms)
+Completed 200 OK in 134ms (Views: 97.3ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:41:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (35.7ms)
+Completed 200 OK in 129ms (Views: 93.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:42:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 132ms (Views: 92.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:45:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 106ms (Views: 69.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 16:45:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=51a25dcca9aa0d4f1808c272a06b8a63201b2203cd0642a2&code=4%2F0AY0e-g6NuCONX7cVBCGJDd5xdEVOzwZiffswDl6ONbPOR8FurNRfOOXPbGrGldDTJGKXBg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 16:45:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/vagrant/workspace/the_dev_challenge/app/controllers/sessions_controller.rb:6: syntax error, unexpected ':', expecting '}'
+...:auth_token]=JWT.encode {email: info[:email]}, ENV['HMAC_SEC...
+...                              ^
+/vagrant/workspace/the_dev_challenge/app/controllers/sessions_controller.rb:6: syntax error, unexpected '}', expecting keyword_end
+...WT.encode {email: info[:email]}, ENV['HMAC_SECRET'], ENV['HM...
+...                              ^
+/vagrant/workspace/the_dev_challenge/app/controllers/sessions_controller.rb:6: syntax error, unexpected '\n', expecting '='
+...AC_SECRET'], ENV['HMAC_METHOD']
+...                               ^
+/vagrant/workspace/the_dev_challenge/app/controllers/sessions_controller.rb:16: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/sessions_controller.rb:6: syntax error, unexpected ':', expecting '}'
+app/controllers/sessions_controller.rb:6: syntax error, unexpected '}', expecting keyword_end
+app/controllers/sessions_controller.rb:6: syntax error, unexpected '\n', expecting '='
+app/controllers/sessions_controller.rb:16: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/auth/google_oauth2/callback?state=51a25dcca9aa0d4f1808c272a06b8a63201b2203cd0642a2&code=4%2F0AY0e-g6NuCONX7cVBCGJDd5xdEVOzwZiffswDl6ONbPOR8FurNRfOOXPbGrGldDTJGKXBg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 16:48:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+OAuth2::Error (invalid_grant: Bad Request
+{
+  "error": "invalid_grant",
+  "error_description": "Bad Request"
+}):
+  
+oauth2 (1.4.7) lib/oauth2/client.rb:127:in `request'
+oauth2 (1.4.7) lib/oauth2/client.rb:164:in `get_token'
+oauth2 (1.4.7) lib/oauth2/strategy/auth_code.rb:30:in `get_token'
+omniauth-google-oauth2 (1.0.0) lib/omniauth/strategies/google_oauth2.rb:136:in `client_get_token'
+omniauth-google-oauth2 (1.0.0) lib/omniauth/strategies/google_oauth2.rb:115:in `get_access_token'
+omniauth-google-oauth2 (1.0.0) lib/omniauth/strategies/google_oauth2.rb:94:in `custom_build_access_token'
+omniauth-oauth2 (1.7.1) lib/omniauth/strategies/oauth2.rb:91:in `callback_phase'
+omniauth (2.0.4) lib/omniauth/strategy.rb:272:in `callback_call'
+omniauth (2.0.4) lib/omniauth/strategy.rb:194:in `call!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:169:in `call'
+omniauth (2.0.4) lib/omniauth/builder.rb:45:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 16:48:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=e7622c254b521c0f518a61f05a04c7ae607ba0f2354f3060&code=4%2F0AY0e-g54904LUprnfO6Bic5_0HmqLR_mhsi_UzDieMbl04JxJmJgax1hlXVyT3IMbf6mDA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 16:48:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"e7622c254b521c0f518a61f05a04c7ae607ba0f2354f3060", "code"=>"4/0AY0e-g54904LUprnfO6Bic5_0HmqLR_mhsi_UzDieMbl04JxJmJgax1hlXVyT3IMbf6mDA", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:48:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (30.7ms)
+Completed 200 OK in 148ms (Views: 113.2ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 16:49:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=977d7bc2edd1615567785d3a48fd32b2ee642b340ceb9c4d&code=4%2F0AY0e-g5LpLUAaQ0MkdziBHT_kxVyIXRIrBxNsnk2PcvhNpvj73omyCPMSGBQ9XjPruRC2A&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 16:49:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"977d7bc2edd1615567785d3a48fd32b2ee642b340ceb9c4d", "code"=>"4/0AY0e-g5LpLUAaQ0MkdziBHT_kxVyIXRIrBxNsnk2PcvhNpvj73omyCPMSGBQ9XjPruRC2A", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:49:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 131ms (Views: 90.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:50:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (12.3ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:9:in `current_user'
+app/helpers/application_helper.rb:15:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__943505975890539996_69978279435480'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:51:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 2.3ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of String into Integer):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:9:in `[]'
+app/helpers/application_helper.rb:9:in `current_user'
+app/helpers/application_helper.rb:16:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__943505975890539996_69978279680760'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:52:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (11.5ms)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:10:in `current_user'
+app/helpers/application_helper.rb:16:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__943505975890539996_69978278685940'
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:52:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:9
+  Rendered home/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 137ms (Views: 97.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:53:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:9
+  Rendered home/index.html.erb within layouts/application (31.6ms)
+Completed 200 OK in 129ms (Views: 92.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 16:53:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:53:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:9
+  Rendered home/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 90ms (Views: 79.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:53:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:9
+  Rendered home/index.html.erb within layouts/application (36.2ms)
+Completed 200 OK in 162ms (Views: 120.9ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 16:53:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:53:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:9
+  Rendered home/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 97ms (Views: 87.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 16:54:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:54:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 174ms (Views: 117.1ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 16:54:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=aea9225a8292a3e202d76c5864e8bd5da662abc4860cb174&code=4%2F0AY0e-g75X3HhhYk1ZqHc63LB_jujvVcTM-yLzYQdjRaJeUPxF1Igh6HJp4eRnWoEdB-JFA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 16:54:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"aea9225a8292a3e202d76c5864e8bd5da662abc4860cb174", "code"=>"4/0AY0e-g75X3HhhYk1ZqHc63LB_jujvVcTM-yLzYQdjRaJeUPxF1Igh6HJp4eRnWoEdB-JFA", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 46ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:54:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:9
+  Rendered home/index.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 108ms (Views: 96.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 16:54:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 16:54:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 91ms (Views: 80.7ms | ActiveRecord: 1.1ms)
+
+
