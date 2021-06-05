@@ -66,8 +66,9 @@ group :test do
 end
 
 
-group :test do
-    gem 'pg'
+group :production do
+  gem 'webpacker'  
+  gem 'pg'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
