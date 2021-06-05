@@ -1,0 +1,1218 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePurchases (20210605115502)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "purchases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "purchaser_name" varchar, "item_description" varchar, "item_price" float, "purchase_count" integer, "merchant_adderss" varchar, "merchant_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115502"]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20210605115655)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115655"]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (3.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-06-05 12:53:08.109558"], ["updated_at", "2021-06-05 12:53:08.109558"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.2ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_adderss", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 12:53:17.286975', '2021-06-05 12:53:17.286975', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_adderss", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 12:53:17.286975', '2021-06-05 12:53:17.286975', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 12:53:17.291432', '2021-06-05 12:53:17.291432', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 12:53:17.291432', '2021-06-05 12:53:17.291432', 298486374)[0m
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 12:53:17 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (697.1ms)
+Completed 200 OK in 742ms (Views: 711.3ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 12:53:18 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (1.4ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 95ms (Views: 85.3ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.3ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_adderss", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 12:53:53.899855', '2021-06-05 12:53:53.899855', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_adderss", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 12:53:53.899855', '2021-06-05 12:53:53.899855', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 12:53:53.903460', '2021-06-05 12:53:53.903460', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 12:53:53.903460', '2021-06-05 12:53:53.903460', 298486374)[0m
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 12:53:54 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.9ms)
+Completed 200 OK in 111ms (Views: 86.6ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 12:53:54 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a1d781b0 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18309-lg8y3s.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 400 Bad Request in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 12:53:54 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a228cac0 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18309-2thtva.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (4.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 12:53:54.185374"], ["updated_at", "2021-06-05 12:53:54.185374"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 12:53:54.192961"], ["updated_at", "2021-06-05 12:53:54.192961"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:53:54.195961"], ["updated_at", "2021-06-05 12:53:54.195961"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:53:54.198543"], ["updated_at", "2021-06-05 12:53:54.198543"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.4ms)
+Completed 200 OK in 26ms (Views: 2.1ms | ActiveRecord: 5.8ms)
+  [1m[35m (2.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 12:53:54 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.6ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (340.1ms)
+Completed 200 OK in 362ms (Views: 353.4ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.6ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.7ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_adderss", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 12:56:03.459919', '2021-06-05 12:56:03.459919', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_adderss", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 12:56:03.459919', '2021-06-05 12:56:03.459919', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 12:56:03.463686', '2021-06-05 12:56:03.463686', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 12:56:03.463686', '2021-06-05 12:56:03.463686', 298486374)[0m
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 12:56:03 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (360.1ms)
+Completed 200 OK in 403ms (Views: 374.6ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 12:56:04 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5f56b90 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18380-18uvnjg.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 12:56:04 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 94ms (Views: 84.6ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 12:56:04 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a55f1a78 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18380-1exdyo1.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (4.3ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 12:56:04.129215"], ["updated_at", "2021-06-05 12:56:04.129215"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 12:56:04.135778"], ["updated_at", "2021-06-05 12:56:04.135778"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:56:04.137730"], ["updated_at", "2021-06-05 12:56:04.137730"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:56:04.139452"], ["updated_at", "2021-06-05 12:56:04.139452"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.4ms)
+Completed 200 OK in 21ms (Views: 1.5ms | ActiveRecord: 5.4ms)
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePurchases (20210605115502)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "purchases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "purchaser_name" varchar, "item_description" varchar, "item_price" float, "purchase_count" integer, "merchant_address" varchar, "merchant_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115502"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20210605115655)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115655"]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (4.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-06-05 12:57:47.789797"], ["updated_at", "2021-06-05 12:57:47.789797"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.7ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (4.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.0ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (3.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.4ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (4.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.6ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.7ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (4.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.4ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (4.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.2ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (10.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20210605115655)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115655"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePurchases (20210605130318)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "purchases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "purchaser_name" varchar, "item_description" varchar, "item_price" float, "purchase_count" integer, "merchant_address" varchar, "merchant_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605130318"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-06-05 13:04:07.669391"], ["updated_at", "2021-06-05 13:04:07.669391"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.9ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:04:30.298830', '2021-06-05 13:04:30.298830', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:04:30.298830', '2021-06-05 13:04:30.298830', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:04:30.302677', '2021-06-05 13:04:30.302677', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:04:30.302677', '2021-06-05 13:04:30.302677', 298486374)[0m
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:04:30 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (330.1ms)
+Completed 200 OK in 385ms (Views: 347.6ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:04:30 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5f1dd90 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18600-1x8we2y.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (5.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:04:30.860237"], ["updated_at", "2021-06-05 13:04:30.860237"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:04:30.868253"], ["updated_at", "2021-06-05 13:04:30.868253"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:04:30.870086"], ["updated_at", "2021-06-05 13:04:30.870086"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:04:30.871848"], ["updated_at", "2021-06-05 13:04:30.871848"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.4ms)
+Completed 200 OK in 105ms (Views: 82.8ms | ActiveRecord: 6.7ms)
+  [1m[35m (4.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:04:30 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5f82a38 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18600-19ywv37.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 13:04:30 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (0.6ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 8ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (5.0ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:06:57.193785', '2021-06-05 13:06:57.193785', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:06:57.193785', '2021-06-05 13:06:57.193785', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:06:57.198671', '2021-06-05 13:06:57.198671', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:06:57.198671', '2021-06-05 13:06:57.198671', 298486374)[0m
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:06:57 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (398.0ms)
+Completed 200 OK in 444ms (Views: 413.4ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:06:57 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a514ca18 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18658-1ln7ky2.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (6.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:06:57.819690"], ["updated_at", "2021-06-05 13:06:57.819690"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:06:57.827910"], ["updated_at", "2021-06-05 13:06:57.827910"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:06:57.829828"], ["updated_at", "2021-06-05 13:06:57.829828"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.3ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:06:57.831655"], ["updated_at", "2021-06-05 13:06:57.831655"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.5ms)
+Completed 200 OK in 105ms (Views: 82.3ms | ActiveRecord: 7.3ms)
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 13:06:57 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (0.6ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 9ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:06:57 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5f97898 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18658-67rvyk.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:06:57 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.8ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:06:57 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5fde608 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18658-vkiyb1.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (3.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:06:57.964758"], ["updated_at", "2021-06-05 13:06:57.964758"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:06:57.970284"], ["updated_at", "2021-06-05 13:06:57.970284"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:06:57.972115"], ["updated_at", "2021-06-05 13:06:57.972115"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:06:57.973793"], ["updated_at", "2021-06-05 13:06:57.973793"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.1ms)
+Completed 200 OK in 13ms (Views: 1.1ms | ActiveRecord: 4.5ms)
+  [1m[35m (2.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.8ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:20:16.603625', '2021-06-05 13:20:16.603625', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:20:16.603625', '2021-06-05 13:20:16.603625', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:20:16.608788', '2021-06-05 13:20:16.608788', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:20:16.608788', '2021-06-05 13:20:16.608788', 298486374)[0m
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:20:16 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (369.0ms)
+Completed 200 OK in 434ms (Views: 388.7ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:20:17 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.3ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 1.5ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:20:17 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a4e5df78 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19027-lh555t.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (6.4ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:20:17.223030"], ["updated_at", "2021-06-05 13:20:17.223030"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:20:17.231660"], ["updated_at", "2021-06-05 13:20:17.231660"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:20:17.233603"], ["updated_at", "2021-06-05 13:20:17.233603"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:20:17.235488"], ["updated_at", "2021-06-05 13:20:17.235488"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.4ms)
+Completed 200 OK in 118ms (Views: 92.6ms | ActiveRecord: 7.4ms)
+  [1m[35m (4.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 13:20:17 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 12ms (Views: 1.6ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:20:17 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5fa5060 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19027-9gdyj1.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:20:17 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5fb9470 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19027-15sib40.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (4.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:20:17.383613"], ["updated_at", "2021-06-05 13:20:17.383613"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:20:17.390582"], ["updated_at", "2021-06-05 13:20:17.390582"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.5ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:20:17.392502"], ["updated_at", "2021-06-05 13:20:17.392502"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:20:17.395315"], ["updated_at", "2021-06-05 13:20:17.395315"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 1.2ms | ActiveRecord: 6.2ms)
+  [1m[35m (4.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+SessionsControllerTest: test_should_keep_session
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_end_session
+-----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+SessionsControllerTest: test_should_not_keep_session
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.1ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:21:44.174194', '2021-06-05 13:21:44.174194', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:21:44.174194', '2021-06-05 13:21:44.174194', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:21:44.179072', '2021-06-05 13:21:44.179072', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:21:44.179072', '2021-06-05 13:21:44.179072', 298486374)[0m
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:21:44 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (396.9ms)
+Completed 200 OK in 447ms (Views: 413.2ms | ActiveRecord: 1.1ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:21:44 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5f18f20 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19068-1q7cjzt.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (6.0ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:21:44.792081"], ["updated_at", "2021-06-05 13:21:44.792081"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:21:44.800748"], ["updated_at", "2021-06-05 13:21:44.800748"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:21:44.802738"], ["updated_at", "2021-06-05 13:21:44.802738"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:21:44.804655"], ["updated_at", "2021-06-05 13:21:44.804655"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.4ms)
+Completed 200 OK in 114ms (Views: 89.2ms | ActiveRecord: 7.0ms)
+  [1m[35m (4.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:21:44 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5f84180 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19068-yevrq1.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (4.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:21:44.921411"], ["updated_at", "2021-06-05 13:21:44.921411"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:21:44.928205"], ["updated_at", "2021-06-05 13:21:44.928205"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:21:44.930103"], ["updated_at", "2021-06-05 13:21:44.930103"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:21:44.933277"], ["updated_at", "2021-06-05 13:21:44.933277"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 1.4ms | ActiveRecord: 5.9ms)
+  [1m[35m (4.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:21:44 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a53d6720 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19068-89twie.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 13:21:44 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.5ms)
+Completed 200 OK in 12ms (Views: 2.2ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:21:44 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+SessionsControllerTest: test_should_end_session
+-----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+SessionsControllerTest: test_should_keep_session
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+SessionsControllerTest: test_should_not_keep_session
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.8ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:28:56.361424', '2021-06-05 13:28:56.361424', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:28:56.361424', '2021-06-05 13:28:56.361424', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:28:56.365103', '2021-06-05 13:28:56.365103', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:28:56.365103', '2021-06-05 13:28:56.365103', 298486374)[0m
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:28:56 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (351.5ms)
+Completed 200 OK in 400ms (Views: 366.7ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:28:56 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.4ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 1.4ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:28:56 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5c58fb0 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19096-547y8g.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (6.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:28:56.969457"], ["updated_at", "2021-06-05 13:28:56.969457"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:28:56.977851"], ["updated_at", "2021-06-05 13:28:56.977851"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:28:56.979819"], ["updated_at", "2021-06-05 13:28:56.979819"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:28:56.981661"], ["updated_at", "2021-06-05 13:28:56.981661"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.4ms)
+Completed 200 OK in 109ms (Views: 85.1ms | ActiveRecord: 7.2ms)
+  [1m[35m (4.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:28:57 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5cb00a8 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19096-dafffx.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (4.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:28:57.091321"], ["updated_at", "2021-06-05 13:28:57.091321"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:28:57.098050"], ["updated_at", "2021-06-05 13:28:57.098050"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:28:57.099886"], ["updated_at", "2021-06-05 13:28:57.099886"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:28:57.101614"], ["updated_at", "2021-06-05 13:28:57.101614"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.2ms)
+Completed 200 OK in 15ms (Views: 1.7ms | ActiveRecord: 5.6ms)
+  [1m[35m (4.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:28:57 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5cfe0c8 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19096-lx0tt6.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 13:28:57 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.8ms)
+Completed 200 OK in 13ms (Views: 2.8ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.4ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:36:09.641549', '2021-06-05 13:36:09.641549', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 13:36:09.641549', '2021-06-05 13:36:09.641549', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:36:09.645531', '2021-06-05 13:36:09.645531', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 13:36:09.645531', '2021-06-05 13:36:09.645531', 298486374)[0m
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:36:09 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (341.7ms)
+Completed 200 OK in 400ms (Views: 360.3ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+SessionsControllerTest: test_should_keep_session
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 13:36:10 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (1.2ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.5ms)
+Completed 200 OK in 99ms (Views: 89.0ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:36:10 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5f88a50 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19175-1vv2nes.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:36:10 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a5fa2e28 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19175-1sab4ua.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (6.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:36:10.370271"], ["updated_at", "2021-06-05 13:36:10.370271"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:36:10.380805"], ["updated_at", "2021-06-05 13:36:10.380805"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:36:10.383123"], ["updated_at", "2021-06-05 13:36:10.383123"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:36:10.385500"], ["updated_at", "2021-06-05 13:36:10.385500"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.4ms)
+Completed 200 OK in 29ms (Views: 1.7ms | ActiveRecord: 8.1ms)
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 13:36:10 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 1.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 13:36:10 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055e5a600e6a0 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-19175-1xydpuo.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (3.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:36:10.420489"], ["updated_at", "2021-06-05 13:36:10.420489"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:36:10.426330"], ["updated_at", "2021-06-05 13:36:10.426330"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:36:10.428336"], ["updated_at", "2021-06-05 13:36:10.428336"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:36:10.431162"], ["updated_at", "2021-06-05 13:36:10.431162"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.0ms)
+Completed 200 OK in 15ms (Views: 1.2ms | ActiveRecord: 4.9ms)
+  [1m[35m (4.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.9ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 14:07:49.984401', '2021-06-05 14:07:49.984401', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 14:07:49.984401', '2021-06-05 14:07:49.984401', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 14:07:49.987795', '2021-06-05 14:07:49.987795', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 14:07:49.987795', '2021-06-05 14:07:49.987795', 298486374)[0m
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 14:07:50 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.6ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (387.3ms)
+Completed 200 OK in 427ms (Views: 400.4ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 14:07:50 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055b935e8b4a0 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-20263-9snhj6.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 14:07:50 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 84ms (Views: 73.8ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 14:07:50 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055b935ed7968 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-20263-1yx7gvp.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (5.0ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 14:07:50.655005"], ["updated_at", "2021-06-05 14:07:50.655005"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 14:07:50.662022"], ["updated_at", "2021-06-05 14:07:50.662022"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 14:07:50.663611"], ["updated_at", "2021-06-05 14:07:50.663611"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 14:07:50.665198"], ["updated_at", "2021-06-05 14:07:50.665198"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.4ms)
+Completed 200 OK in 20ms (Views: 1.4ms | ActiveRecord: 6.0ms)
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------
+SessionsTest: test_should_keep_session
+--------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 14:07:50 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.6ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.6ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 14:07:50 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055b935f75f28 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-20263-lcii4i.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (3.0ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 14:07:50.701557"], ["updated_at", "2021-06-05 14:07:50.701557"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 14:07:50.706204"], ["updated_at", "2021-06-05 14:07:50.706204"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 14:07:50.707847"], ["updated_at", "2021-06-05 14:07:50.707847"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 14:07:50.709356"], ["updated_at", "2021-06-05 14:07:50.709356"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.0ms)
+Completed 200 OK in 12ms (Views: 1.0ms | ActiveRecord: 3.9ms)
+  [1m[35m (3.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.0ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 14:10:20.397923', '2021-06-05 14:10:20.397923', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 14:10:20.397923', '2021-06-05 14:10:20.397923', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 14:10:20.400945', '2021-06-05 14:10:20.400945', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 14:10:20.400945', '2021-06-05 14:10:20.400945', 298486374)[0m
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 14:10:20 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (373.0ms)
+Completed 200 OK in 414ms (Views: 386.8ms | ActiveRecord: 0.9ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 14:10:20 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f61f8154c88 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-20293-4qrqo7.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (5.4ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 14:10:20.959380"], ["updated_at", "2021-06-05 14:10:20.959380"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 14:10:20.966765"], ["updated_at", "2021-06-05 14:10:20.966765"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 14:10:20.968515"], ["updated_at", "2021-06-05 14:10:20.968515"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 14:10:20.970154"], ["updated_at", "2021-06-05 14:10:20.970154"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.4ms)
+Completed 200 OK in 92ms (Views: 72.5ms | ActiveRecord: 6.3ms)
+  [1m[35m (3.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 14:10:21 +0000
+Processing by PurchasesController#get_all_time as HTML
+  [1m[36mPurchase Load (0.6ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 9ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 14:10:21 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055b935f7be78 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-20293-m50mi6.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 14:10:21 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055b935f9e540 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-20293-c9838k.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (3.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 14:10:21.084443"], ["updated_at", "2021-06-05 14:10:21.084443"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.3ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 14:10:21.089742"], ["updated_at", "2021-06-05 14:10:21.089742"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 14:10:21.092420"], ["updated_at", "2021-06-05 14:10:21.092420"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPurchase Create (0.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 14:10:21.094529"], ["updated_at", "2021-06-05 14:10:21.094529"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPurchase Load (0.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 1.2ms | ActiveRecord: 4.9ms)
+  [1m[35m (3.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 14:10:21 +0000
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m

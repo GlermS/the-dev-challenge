@@ -1,0 +1,2162 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePurchases (20210605115502)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "purchases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "purchaser_name" varchar, "item_description" varchar, "item_price" float, "purchase_count" integer, "merchant_adderss" varchar, "merchant_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605115502_create_purchases.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115502"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (2.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-05 11:55:36.502944"], ["updated_at", "2021-06-05 11:55:36.502944"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mPurchase Load (1.4ms)[0m  [1m[34mSELECT  "purchases".* FROM "purchases" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPurchase Load (1.2ms)[0m  [1m[34mSELECT  "purchases".* FROM "purchases" ORDER BY "purchases"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210605115655)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20210605115655_create_users.rb:3
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605115655_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115655"]]
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:09:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 949ms (Views: 902.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:13:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (281.6ms)
+Completed 500 Internal Server Error in 301ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `logged_in?' for #<#<Class:0x00007f973881d388>:0x00007f97394c8b00>
+Did you mean?  logger?):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p><%= current_user%></p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb__1618540492569870043_70143739056440'
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:13:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (74.3ms)
+Completed 500 Internal Server Error in 125ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'submit' with type 'application/javascript'
+Checked in these paths: 
+  /vagrant/workspace/the_dev_challenge/app/assets/config
+  /vagrant/workspace/the_dev_challenge/app/assets/images
+  /vagrant/workspace/the_dev_challenge/app/assets/javascripts
+  /vagrant/workspace/the_dev_challenge/app/assets/stylesheets
+  /home/vagrant/.rvm/gems/ruby-2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/vagrant/.rvm/gems/ruby-2.5.0/gems/actioncable-5.2.6/lib/assets/compiled
+  /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activestorage-5.2.6/app/assets/javascripts
+  /home/vagrant/.rvm/gems/ruby-2.5.0/gems/actionview-5.2.6/lib/assets/compiled
+  /home/vagrant/.rvm/gems/ruby-2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /vagrant/workspace/the_dev_challenge/node_modules):
+    24:   <%= button_to "Sign in with Google", "/auth/google_oauth2", method:"post" %>
+    25: </div>
+    26: 
+    27: <%= javascript_include_tag 'home'%>
+  
+app/assets/javascripts/home.coffee:4
+app/views/home/index.html.erb:27:in `_app_views_home_index_html_erb__1618540492569870043_70143628760540'
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:14:40 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (590.3ms)
+Completed 500 Internal Server Error in 650ms (ActiveRecord: 3.3ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after ".../sass-lang.com/": expected selector or at-rule, was "/*"):
+    24:   <%= button_to "Sign in with Google", "/auth/google_oauth2", method:"post" %>
+    25: </div>
+    26: 
+    27: <%= javascript_include_tag 'home'%>
+  
+app/assets/stylesheets/home.scss:4
+app/views/home/index.html.erb:27:in `_app_views_home_index_html_erb___2866901793377385056_69830199958680'
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:15:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.5ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (272.6ms)
+Completed 200 OK in 391ms (Views: 376.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 12:15:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [POST] "/auth/google_oauth2"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 12:15:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [POST] "/auth/google_oauth2"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:21:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [POST] "/purchases/post_file"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:21:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [POST] "/purchases/post_file"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:21:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [POST] "/purchases/post_file"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:21:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/purchases_controller.rb:7:in `post_file'
+Started GET "/root" for 10.0.2.2 at 2021-06-05 12:23:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/root"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/root" for 10.0.2.2 at 2021-06-05 12:24:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/root"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:24:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mHPBz8X3q+KLkeFFb5PORoiUm9+6LBmE//WNX/e7cE0eBofMY+xe5QlJbTUBfOvJJQzUL1PtJp6S/hJAEfwCfA==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007fa89c34b7b8 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-17534-12rh0z0.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Upload file"}
+Completed 500 Internal Server Error in 229ms (ActiveRecord: 0.8ms)
+
+
+  
+NameError (undefined local variable or method `itaem' for #<PurchasesController:0x00007fa89c350d30>
+Did you mean?  item
+               items):
+  
+app/controllers/purchases_controller.rb:12:in `block in post_file'
+app/controllers/purchases_controller.rb:11:in `each'
+app/controllers/purchases_controller.rb:11:in `post_file'
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:24:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mHPBz8X3q+KLkeFFb5PORoiUm9+6LBmE//WNX/e7cE0eBofMY+xe5QlJbTUBfOvJJQzUL1PtJp6S/hJAEfwCfA==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007fa89c1cb668 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-17534-9szvgf.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Upload file"}
+Completed 500 Internal Server Error in 242ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `itaem' for #<PurchasesController:0x00007fa89c1cbcd0>
+Did you mean?  item
+               items):
+  
+app/controllers/purchases_controller.rb:12:in `block in post_file'
+app/controllers/purchases_controller.rb:11:in `each'
+app/controllers/purchases_controller.rb:11:in `post_file'
+Started GET "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:24:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/purchases/post_file"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:25:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mHPBz8X3q+KLkeFFb5PORoiUm9+6LBmE//WNX/e7cE0eBofMY+xe5QlJbTUBfOvJJQzUL1PtJp6S/hJAEfwCfA==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007fa89c088530 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-17534-1k3dli4.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 12:25:47.780173"], ["updated_at", "2021-06-05 12:25:47.780173"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 12:25:47.799862"], ["updated_at", "2021-06-05 12:25:47.799862"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:25:47.814669"], ["updated_at", "2021-06-05 12:25:47.814669"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:25:47.830703"], ["updated_at", "2021-06-05 12:25:47.830703"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.5ms)
+Completed 200 OK in 324ms (Views: 153.9ms | ActiveRecord: 42.8ms)
+
+
+Started GET "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:25:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/purchases/post_file"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:26:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mHPBz8X3q+KLkeFFb5PORoiUm9+6LBmE//WNX/e7cE0eBofMY+xe5QlJbTUBfOvJJQzUL1PtJp6S/hJAEfwCfA==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007fa8a85bfc40 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-17534-1i0edas.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (5.0ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 12:26:23.678266"], ["updated_at", "2021-06-05 12:26:23.678266"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 12:26:23.693752"], ["updated_at", "2021-06-05 12:26:23.693752"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:26:23.706536"], ["updated_at", "2021-06-05 12:26:23.706536"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:26:23.719938"], ["updated_at", "2021-06-05 12:26:23.719938"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.6ms)
+Completed 200 OK in 316ms (Views: 168.5ms | ActiveRecord: 31.7ms)
+
+
+Started GET "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:26:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/purchases/post_file"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:28:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mHPBz8X3q+KLkeFFb5PORoiUm9+6LBmE//WNX/e7cE0eBofMY+xe5QlJbTUBfOvJJQzUL1PtJp6S/hJAEfwCfA==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f2fb87b10a8 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-17695-1746wvy.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (5.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 12:28:20.708821"], ["updated_at", "2021-06-05 12:28:20.708821"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.0ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 12:28:20.722640"], ["updated_at", "2021-06-05 12:28:20.722640"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.4ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:28:20.735128"], ["updated_at", "2021-06-05 12:28:20.735128"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:28:20.749446"], ["updated_at", "2021-06-05 12:28:20.749446"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (1.1ms)
+Completed 200 OK in 330ms (Views: 167.8ms | ActiveRecord: 32.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:28:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.2ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (658.5ms)
+Completed 200 OK in 837ms (Views: 825.0ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:28:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uO5LbYMMr6SaSZB2rjUMDdx1bQTg3Pp+uGcABRXXvmk+mw1uJRdaoxiRHAbA2imCce0i9AkdxWTVbJ8a85DMWA==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f2fb1d58080 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-17695-u4e8vh.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (5.4ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 12:28:32.742329"], ["updated_at", "2021-06-05 12:28:32.742329"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (2.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 12:28:32.757554"], ["updated_at", "2021-06-05 12:28:32.757554"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.5ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:28:32.770535"], ["updated_at", "2021-06-05 12:28:32.770535"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.5ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:28:32.785243"], ["updated_at", "2021-06-05 12:28:32.785243"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.5ms)
+Completed 200 OK in 266ms (Views: 138.3ms | ActiveRecord: 28.7ms)
+
+
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:28:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uO5LbYMMr6SaSZB2rjUMDdx1bQTg3Pp+uGcABRXXvmk+mw1uJRdaoxiRHAbA2imCce0i9AkdxWTVbJ8a85DMWA==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f2fb12bc9a0 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-17695-w3m04h.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (5.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 12:28:34.728703"], ["updated_at", "2021-06-05 12:28:34.728703"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.0ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 12:28:34.741706"], ["updated_at", "2021-06-05 12:28:34.741706"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:28:34.753980"], ["updated_at", "2021-06-05 12:28:34.753980"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 12:28:34.766163"], ["updated_at", "2021-06-05 12:28:34.766163"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.5ms)
+Completed 200 OK in 291ms (Views: 157.3ms | ActiveRecord: 32.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:30:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (463.6ms)
+Completed 200 OK in 598ms (Views: 547.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:32:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 109ms (Views: 92.4ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 12:32:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=4c38ef1089eb193d9afa4dcffed2df3d207823f19fcb6500&code=4%2F0AY0e-g6j1X7Q7ChBTjuNk5Wi9xuLyhBzCOIXp9-tf2wmc1oZQ2wpAQ13AbcGbCs6UExFuQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 12:32:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/auth/google_oauth2/callback"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/auth/google_oauth2/callback?state=4c38ef1089eb193d9afa4dcffed2df3d207823f19fcb6500&code=4%2F0AY0e-g4GK5bICqHoqcOCQc3h8VKpIsMT-4r-lmEgPUTQ05wSt_CsUt2YJcgl0dOVGPQwaQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 12:39:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (uninitialized constant SessinsController):
+  
+activesupport (5.2.6) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.6) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.6) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.6) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (2.0.4) lib/omniauth/strategy.rb:470:in `call_app!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:418:in `callback_phase'
+omniauth-oauth2 (1.7.1) lib/omniauth/strategies/oauth2.rb:93:in `callback_phase'
+omniauth (2.0.4) lib/omniauth/strategy.rb:272:in `callback_call'
+omniauth (2.0.4) lib/omniauth/strategy.rb:194:in `call!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:169:in `call'
+omniauth (2.0.4) lib/omniauth/builder.rb:45:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/auth/google_oauth2/callback?state=4c38ef1089eb193d9afa4dcffed2df3d207823f19fcb6500&code=4%2F0AY0e-g7YHb6yi4HVra1kcUjhggm8LRbiQfi8K1FOvpc3MiF8PMqYcsTlRvSU99gezHy0hg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 12:40:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"4c38ef1089eb193d9afa4dcffed2df3d207823f19fcb6500", "code"=>"4/0AY0e-g7YHb6yi4HVra1kcUjhggm8LRbiQfi8K1FOvpc3MiF8PMqYcsTlRvSU99gezHy0hg", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Create (7.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Guilherme Souza"], ["email", "gui.eng.santos@gmail.com"], ["created_at", "2021-06-05 12:40:24.053542"], ["updated_at", "2021-06-05 12:40:24.053542"]]
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 55ms (ActiveRecord: 15.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:40:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (374.4ms)
+Completed 200 OK in 536ms (Views: 496.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:42:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 160ms (Views: 100.7ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:42:40 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.5ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 93ms (Views: 76.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:46:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.5ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 167ms (Views: 115.4ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 12:46:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Completed 406 Not Acceptable in 321ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (SessionsController#signout is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.6) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.6) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.6) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.6) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.6) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.6) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.6) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.6) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.6) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.6) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.6) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.6) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.6) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (2.0.4) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:169:in `call'
+omniauth (2.0.4) lib/omniauth/builder.rb:45:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 12:47:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:47:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 116ms (Views: 77.9ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 12:47:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=68eca5787de13c7f2169852889a2e10ed973a07422d1c830&code=4%2F0AY0e-g55Qy5DU7wbtIsg-tX4clZzW2d0IlAsn3gJuv0kAzu3ldm_A4HTCfRxS9SUIlr07Q&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 12:47:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"68eca5787de13c7f2169852889a2e10ed973a07422d1c830", "code"=>"4/0AY0e-g55Qy5DU7wbtIsg-tX4clZzW2d0IlAsn3gJuv0kAzu3ldm_A4HTCfRxS9SUIlr07Q", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:47:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 95ms (Views: 84.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 12:47:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:47:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 94ms (Views: 80.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:48:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 98ms (Views: 85.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 12:48:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=9489fc9d3a215d93f6420d8e4aa46b07bfc9d972fe61f0e6&code=4%2F0AY0e-g7gpnUdWqDvA5RZSDX7nyhsbxrwkTX2O6KReThQ5cutXP5Gr1i1RPw7kISlFS1Hiw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 12:48:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"9489fc9d3a215d93f6420d8e4aa46b07bfc9d972fe61f0e6", "code"=>"4/0AY0e-g7gpnUdWqDvA5RZSDX7nyhsbxrwkTX2O6KReThQ5cutXP5Gr1i1RPw7kISlFS1Hiw", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:48:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 98ms (Views: 86.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 12:49:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IqHfUBui5X/PKOZWARptKRAcmDzUzW46aRvI7ymdm9ik1JlTvbkQeE3waiZv9UimvYTXzD0MUSAEEFfwz9rp6Q==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007fb608d36588 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-17988-dtlj2m.jpg>, @original_filename="pexels-fauxels-3183197.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"pexels-fauxels-3183197.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Upload file"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (invalid byte sequence in UTF-8):
+  
+app/controllers/purchases_controller.rb:42:in `split'
+app/controllers/purchases_controller.rb:42:in `block in parse_text'
+app/controllers/purchases_controller.rb:40:in `each'
+app/controllers/purchases_controller.rb:40:in `parse_text'
+app/controllers/purchases_controller.rb:8:in `post_file'
+Started GET "/" for 10.0.2.2 at 2021-06-05 12:50:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (333.5ms)
+Completed 200 OK in 479ms (Views: 430.9ms | ActiveRecord: 4.7ms)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePurchases (20210605115502)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "purchases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "purchaser_name" varchar, "item_description" varchar, "item_price" float, "purchase_count" integer, "merchant_address" varchar, "merchant_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605115502_create_purchases.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115502"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210605115655)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605115655_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115655"]]
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (2.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-05 12:57:32.576878"], ["updated_at", "2021-06-05 12:57:32.576878"]]
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210605115655)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605115655_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115655"]]
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreatePurchases (20210605130120)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "purchases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "purchaser_name" varchar, "item_description" varchar, "item_price" float, "purchase_count" integer, "merchant_adderss" varchar, "merchant_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605130120_create_purchases.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605130120"]]
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (4.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-05 13:02:31.659431"], ["updated_at", "2021-06-05 13:02:31.659431"]]
+  ↳ bin/rails:9
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210605115655)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605115655_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605115655"]]
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreatePurchases (20210605130318)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "purchases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "purchaser_name" varchar, "item_description" varchar, "item_price" float, "purchase_count" integer, "merchant_address" varchar, "merchant_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605130318_create_purchases.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605130318"]]
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (7.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-05 13:03:55.899632"], ["updated_at", "2021-06-05 13:03:55.899632"]]
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:09:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (409.6ms)
+Completed 200 OK in 595ms (Views: 541.5ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 13:10:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sSNTqdYQ24KP9Eb2u6bE8+aWcUwuXjptL6PqofJrnYg3VhWqcAsuhQ0syobVSeF8Sw4+vMefBXdCqHW+FCzvuQ==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007feef007b430 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18669-7hmbpz.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (7.3ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:10:02.742275"], ["updated_at", "2021-06-05 13:10:02.742275"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:10:02.761417"], ["updated_at", "2021-06-05 13:10:02.761417"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (5.0ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:10:02.776850"], ["updated_at", "2021-06-05 13:10:02.776850"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:10:02.791782"], ["updated_at", "2021-06-05 13:10:02.791782"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.8ms)
+Completed 200 OK in 325ms (Views: 167.7ms | ActiveRecord: 41.1ms)
+
+
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 13:10:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sSNTqdYQ24KP9Eb2u6bE8+aWcUwuXjptL6PqofJrnYg3VhWqcAsuhQ0syobVSeF8Sw4+vMefBXdCqHW+FCzvuQ==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007feee9d6a580 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-18669-18kdiei.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (8.0ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 13:10:09.647857"], ["updated_at", "2021-06-05 13:10:09.647857"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 13:10:09.664404"], ["updated_at", "2021-06-05 13:10:09.664404"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:10:09.678389"], ["updated_at", "2021-06-05 13:10:09.678389"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 13:10:09.692063"], ["updated_at", "2021-06-05 13:10:09.692063"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.9ms)
+Completed 200 OK in 308ms (Views: 162.1ms | ActiveRecord: 41.0ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 13:10:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=1d7b3f03005c94b54b4ff7c88de59c5a74e68375bc051454&code=4%2F0AY0e-g57S5LRRla_6tCxEgoksbHLAMNBuPRZU7HCcMZB9Ia2OIqS5fixc-yM4x-iYF3jcg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for 10.0.2.2 at 2021-06-05 13:10:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"1d7b3f03005c94b54b4ff7c88de59c5a74e68375bc051454", "code"=>"4/0AY0e-g57S5LRRla_6tCxEgoksbHLAMNBuPRZU7HCcMZB9Ia2OIqS5fixc-yM4x-iYF3jcg", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "guilhermesansou@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Create (7.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Guilherme Souza"], ["email", "guilhermesansou@gmail.com"], ["created_at", "2021-06-05 13:10:18.582187"], ["updated_at", "2021-06-05 13:10:18.582187"]]
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 35ms (ActiveRecord: 16.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:10:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guilhermesansou@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 110ms (Views: 98.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 13:10:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:10:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 105ms (Views: 93.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 13:14:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=1ba08938f86218029df8b04162fbbd6add7646495475e0f3&code=4%2F0AY0e-g7WQ_xoS2ha2UGvcyX13M2C9t_aGSTGCldQicmNGKKvbnH4HdWY3WOIH-CLWYcFcQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=2&prompt=consent" for 10.0.2.2 at 2021-06-05 13:14:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"1ba08938f86218029df8b04162fbbd6add7646495475e0f3", "code"=>"4/0AY0e-g7WQ_xoS2ha2UGvcyX13M2C9t_aGSTGCldQicmNGKKvbnH4HdWY3WOIH-CLWYcFcQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"2", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "test.thedevchallenge@gmail.com"], ["name", "Teste Email"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Create (5.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Teste Email"], ["email", "test.thedevchallenge@gmail.com"], ["created_at", "2021-06-05 13:14:52.083475"], ["updated_at", "2021-06-05 13:14:52.083475"]]
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:14:52 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test.thedevchallenge@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 114ms (Views: 103.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:46:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (24.9ms)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 3.1ms)
+
+
+  
+ActionView::Template::Error (ActionController::Metal#session delegated to @_request.session, but @_request is nil: #<SessionsController:0x00007fb4808f0818 @_action_has_layout=true, @_routes=nil, @_request=nil, @_response=nil>):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/controllers/sessions_controller.rb:13:in `check_session'
+app/helpers/application_helper.rb:3:in `current_user'
+app/helpers/application_helper.rb:7:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb___3349788591465492205_70206613713320'
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:48:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (368.7ms)
+Completed 200 OK in 536ms (Views: 484.1ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 13:48:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=70bb5aabbd917f5b519b1824b940f0fc6d106ac1f613fe5a&code=4%2F0AY0e-g71VMMTQwXOSns2ChMJ-q8N_kjo-x5N4UHUDq0bdqVeHtOusWb_O5f6c6mpxTBS5w&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 13:48:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"70bb5aabbd917f5b519b1824b940f0fc6d106ac1f613fe5a", "code"=>"4/0AY0e-g71VMMTQwXOSns2ChMJ-q8N_kjo-x5N4UHUDq0bdqVeHtOusWb_O5f6c6mpxTBS5w", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Create (7.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Guilherme Souza"], ["email", "gui.eng.santos@gmail.com"], ["created_at", "2021-06-05 13:49:00.101064"], ["updated_at", "2021-06-05 13:49:00.101064"]]
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 45ms (ActiveRecord: 16.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:49:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 109ms (Views: 97.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 13:49:40 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=70f3d35641021724da051272a853df9d876b0f389c2b9a1f&code=4%2F0AY0e-g7bKMsMyhITRA8sODH5VVSb9cpKHiU8F8zltGiqunAJljzzgOBePwAJi-KpPKjhNg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for 10.0.2.2 at 2021-06-05 13:49:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"70f3d35641021724da051272a853df9d876b0f389c2b9a1f", "code"=>"4/0AY0e-g7bKMsMyhITRA8sODH5VVSb9cpKHiU8F8zltGiqunAJljzzgOBePwAJi-KpPKjhNg", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "guilhermesansou@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:49:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 117ms (Views: 106.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 13:50:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=e307775cdb112d245dcbcee9efd6cecceab2652492996319&code=4%2F0AY0e-g7v4JFkYpbWLtcEF2M2sZ8RHpKSIrFt0LaIYdJXez4tyvsSZyBO3-OmtqU18MPr2w&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 13:50:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"e307775cdb112d245dcbcee9efd6cecceab2652492996319", "code"=>"4/0AY0e-g7v4JFkYpbWLtcEF2M2sZ8RHpKSIrFt0LaIYdJXez4tyvsSZyBO3-OmtqU18MPr2w", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:50:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 113ms (Views: 80.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:51:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (337.3ms)
+Completed 200 OK in 478ms (Views: 432.0ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 13:51:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=a670115a75b17a84b96c385c540882ed327cc1e37f31874c&code=4%2F0AY0e-g7LIDJ19jKZ2_meXhtk9R5MrwZBLO3VypN36B7i6HLjWfdRsKw64ypLzTWUDRWH-A&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 13:51:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"a670115a75b17a84b96c385c540882ed327cc1e37f31874c", "code"=>"4/0AY0e-g7LIDJ19jKZ2_meXhtk9R5MrwZBLO3VypN36B7i6HLjWfdRsKw64ypLzTWUDRWH-A", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:51:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 122ms (Views: 108.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 13:52:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=7a99ad3a47442408b0cd82363d92c2048d1cf7eebceb0e4f&code=4%2F0AY0e-g6PtiCR4x2xGaOeOjD0jY0yi-grnlqZ2_8iGHTgETcx3vdwn-drjEdJBNwWnGI_BQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 13:52:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"7a99ad3a47442408b0cd82363d92c2048d1cf7eebceb0e4f", "code"=>"4/0AY0e-g6PtiCR4x2xGaOeOjD0jY0yi-grnlqZ2_8iGHTgETcx3vdwn-drjEdJBNwWnGI_BQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 44ms (ActiveRecord: 11.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:52:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (19.3ms)
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 5.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+  
+app/helpers/application_helper.rb:4:in `current_user'
+app/helpers/application_helper.rb:9:in `logged_in?'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb___4216849346128278501_70083640559380'
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:53:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (16.1ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 4.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+    8:       <div class="field">
+  
+app/helpers/application_helper.rb:4:in `current_user'
+app/views/home/index.html.erb:5:in `_app_views_home_index_html_erb___4216849346128278501_47418313973640'
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:54:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 3.6ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of nil into String):
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+    8:       <div class="field">
+  
+app/helpers/application_helper.rb:4:in `+'
+app/helpers/application_helper.rb:4:in `current_user'
+app/views/home/index.html.erb:5:in `_app_views_home_index_html_erb___4216849346128278501_70083645892040'
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:54:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (16.2ms)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 4.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+    8:       <div class="field">
+  
+app/views/home/index.html.erb:5:in `_app_views_home_index_html_erb___4216849346128278501_70083432115660'
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:55:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (15.0ms)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 3.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <% if logged_in? %>
+    5:         <p>Hello, <%= current_user[:name]%>!</p>
+    6:     <% end %>
+    7:     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+    8:       <div class="field">
+  
+app/views/home/index.html.erb:5:in `_app_views_home_index_html_erb___4216849346128278501_70083651067380'
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:55:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 126ms (Views: 91.6ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 13:55:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=000c65a3a047a4e44f65989124c457cc258ec1043c691be7&code=4%2F0AY0e-g6G-4euBR5o9fK9A9y21U_T7-CwjwTCsURPUOZdpCjKqt9XqWF-oy7PKtrFVQ1eaQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 13:55:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"000c65a3a047a4e44f65989124c457cc258ec1043c691be7", "code"=>"4/0AY0e-g6G-4euBR5o9fK9A9y21U_T7-CwjwTCsURPUOZdpCjKqt9XqWF-oy7PKtrFVQ1eaQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:55:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 119ms (Views: 103.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:57:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 115ms (Views: 80.0ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 13:57:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=b9b2bb5c73bc32c2e02f430cbeb04d4884dc185cd4c9d3f9&code=4%2F0AY0e-g7r6l47z8iTGlT2HQvO7G5YwGBXJ1kRIANxupIrMnAIh85qgeNJDcASlq8LiGSmKg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 13:57:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"b9b2bb5c73bc32c2e02f430cbeb04d4884dc185cd4c9d3f9", "code"=>"4/0AY0e-g7r6l47z8iTGlT2HQvO7G5YwGBXJ1kRIANxupIrMnAIh85qgeNJDcASlq8LiGSmKg", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:57:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 97ms (Views: 86.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:58:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 116ms (Views: 102.1ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 13:59:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=5f815b468522aa375352ef57fb8082f671a52941faaea8fd&code=4%2F0AY0e-g5AbAHeDQJGxMaG2Fgd9QVsiao0zj7P5Tm4MAcd_-rQDYp9xY1k7tsq_VC5ZfllVw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 13:59:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"5f815b468522aa375352ef57fb8082f671a52941faaea8fd", "code"=>"4/0AY0e-g5AbAHeDQJGxMaG2Fgd9QVsiao0zj7P5Tm4MAcd_-rQDYp9xY1k7tsq_VC5ZfllVw", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:59:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 93ms (Views: 82.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 13:59:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.0ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (374.8ms)
+Completed 200 OK in 530ms (Views: 482.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 14:00:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=fb641ba38dbe88f0be846634c837036b9007ac445ab91cae&code=4%2F0AY0e-g6OrOmta_qA1w4dIHOmT9j30Xmc8NHWOsMjws7g6Zr9kGplkX2wtLSm3lVF9zTYmg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 14:00:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"fb641ba38dbe88f0be846634c837036b9007ac445ab91cae", "code"=>"4/0AY0e-g6OrOmta_qA1w4dIHOmT9j30Xmc8NHWOsMjws7g6Zr9kGplkX2wtLSm3lVF9zTYmg", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:00:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 90ms (Views: 80.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 14:01:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=0b95704844139dc543221a039ac1c88ac9798343e8ec6f5b&code=4%2F0AY0e-g6j2kXe7BIZIoS01K9ZTDgkxSDj4ABcIDbkar1N7QPfXNe-TNU45z2F1EWdOtutUw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 14:01:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"0b95704844139dc543221a039ac1c88ac9798343e8ec6f5b", "code"=>"4/0AY0e-g6j2kXe7BIZIoS01K9ZTDgkxSDj4ABcIDbkar1N7QPfXNe-TNU45z2F1EWdOtutUw", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:01:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  Rendered home/index.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 126ms (Views: 92.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:01:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.2ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of nil into String):
+    1: <div id="container" class="content">
+    2:   <div class="content">
+    3:     <h1>The Dev Challenge</h1>
+    4:     <%=current_user%>
+    5:     <% if logged_in? %>
+    6:         <p>Hello, <%= current_user[:name]%>!</p>
+    7:     <% end %>
+  
+app/helpers/application_helper.rb:3:in `+'
+app/helpers/application_helper.rb:3:in `current_user'
+app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb___4555150938137547930_69832655783440'
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:02:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (33.7ms)
+Completed 200 OK in 140ms (Views: 97.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 14:02:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:02:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 102ms (Views: 90.2ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 14:02:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=610966fe33f72a0528cfbb3fbe6fe5d771098c36cd7768b9&code=4%2F0AY0e-g7PiTmcBzm9so8xdw0wVgoIsSCAaIHj_95aNa0rv4G5IJFYtJDgm6Mk2Up8VHLGNQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=1&prompt=consent" for 10.0.2.2 at 2021-06-05 14:02:48 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"610966fe33f72a0528cfbb3fbe6fe5d771098c36cd7768b9", "code"=>"4/0AY0e-g7PiTmcBzm9so8xdw0wVgoIsSCAaIHj_95aNa0rv4G5IJFYtJDgm6Mk2Up8VHLGNQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:02:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.9ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gui.eng.santos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 92ms (Views: 81.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 14:03:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:03:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 109ms (Views: 94.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 14:03:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=7bcebf1160e65eb1377827058b11e207c267b946e61034b5&code=4%2F0AY0e-g68j5qX_8aK7okAnONeTOUsVdvlhFBPbVKHPolSMCQJTiKou1ljUQn1WsavHk_teQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=3&prompt=consent" for 10.0.2.2 at 2021-06-05 14:03:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"7bcebf1160e65eb1377827058b11e207c267b946e61034b5", "code"=>"4/0AY0e-g68j5qX_8aK7okAnONeTOUsVdvlhFBPbVKHPolSMCQJTiKou1ljUQn1WsavHk_teQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"3", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "guiguilhermesansou@gmail.com"], ["name", "guilherme santos souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[36mUser Create (8.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "guilherme santos souza"], ["email", "guiguilhermesansou@gmail.com"], ["created_at", "2021-06-05 14:03:57.610597"], ["updated_at", "2021-06-05 14:03:57.610597"]]
+  ↳ app/controllers/sessions_controller.rb:4
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 32ms (ActiveRecord: 14.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:03:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guiguilhermesansou@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 100ms (Views: 88.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 14:04:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:04:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 105ms (Views: 92.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 14:04:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:05:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.7ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (346.8ms)
+Completed 200 OK in 484ms (Views: 442.6ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 14:05:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=334086553c8418df7cd241789ed418f21b159cd63d843c17&code=4%2F0AY0e-g5TorR0BmyH7A7_mfVfKE14OKf3I7OhZ_srhRtG4BT2DSrLo5DTMTpGEHAykOZjrg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for 10.0.2.2 at 2021-06-05 14:05:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"334086553c8418df7cd241789ed418f21b159cd63d843c17", "code"=>"4/0AY0e-g5TorR0BmyH7A7_mfVfKE14OKf3I7OhZ_srhRtG4BT2DSrLo5DTMTpGEHAykOZjrg", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "guilhermesansou@gmail.com"], ["name", "Guilherme Souza"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:05:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guilhermesansou@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 95ms (Views: 85.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/auth/logout" for 10.0.2.2 at 2021-06-05 14:07:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:07:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 123ms (Views: 109.6ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/auth/google_oauth2" for 10.0.2.2 at 2021-06-05 14:07:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/auth/google_oauth2/callback?state=cd95ffd4f4e5fcf57a085f6857f604d804011cddddab6790&code=4%2F0AY0e-g7bEKKHayGTnhkFy-kRN-bxnwHrMdp3t-zxRbeNK_mp_3CFlPjWOLxvynf64ulwlA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=2&prompt=consent" for 10.0.2.2 at 2021-06-05 14:07:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"cd95ffd4f4e5fcf57a085f6857f604d804011cddddab6790", "code"=>"4/0AY0e-g7bEKKHayGTnhkFy-kRN-bxnwHrMdp3t-zxRbeNK_mp_3CFlPjWOLxvynf64ulwlA", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"2", "prompt"=>"consent", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "test.thedevchallenge@gmail.com"], ["name", "Teste Email"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2021-06-05 14:07:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  [1m[36mPurchase Load (0.8ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test.thedevchallenge@gmail.com"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  Rendered home/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 113ms (Views: 101.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/purchases/post_file" for 10.0.2.2 at 2021-06-05 14:07:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PurchasesController#post_file as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4fF7b45nFGSEkAHpFHcgBS8Lx6X97f1aOtX5qKuqiRhnhD1sKHzhYwZIjZl6mAWKgpOIVRQswkBX3ma3Te37KQ==", "purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007f3b861e36b0 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-20229-gz0c9k.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Upload file"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (6.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "João Silva"], ["item_description", "R$10 off R$20 of food"], ["item_price", 10.0], ["purchase_count", 2], ["merchant_address", "987 Fake St"], ["merchant_name", "Bob's Pizza"], ["created_at", "2021-06-05 14:07:34.652938"], ["updated_at", "2021-06-05 14:07:34.652938"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.3ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Amy Pond"], ["item_description", "R$30 of awesome for R$10"], ["item_price", 10.0], ["purchase_count", 5], ["merchant_address", "456 Unreal Rd"], ["merchant_name", "Tom's Awesome Shop"], ["created_at", "2021-06-05 14:07:34.675115"], ["updated_at", "2021-06-05 14:07:34.675115"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (4.0ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Marty McFly"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 1], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 14:07:34.694728"], ["updated_at", "2021-06-05 14:07:34.694728"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Create (3.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["purchaser_name", "Snake Plissken"], ["item_description", "R$20 Sneakers for R$5"], ["item_price", 5.0], ["purchase_count", 4], ["merchant_address", "123 Fake St"], ["merchant_name", "Sneaker Store Emporium"], ["created_at", "2021-06-05 14:07:34.720746"], ["updated_at", "2021-06-05 14:07:34.720746"]]
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/purchases_controller.rb:13
+  [1m[36mPurchase Load (1.1ms)[0m  [1m[34mSELECT "purchases".* FROM "purchases"[0m
+  ↳ app/controllers/purchases_controller.rb:27
+  Rendering purchases/post_file.html.erb
+  Rendered purchases/post_file.html.erb (0.4ms)
+Completed 200 OK in 346ms (Views: 166.1ms | ActiveRecord: 34.7ms)
+
+
