@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_05_115655) do
+ActiveRecord::Schema.define(version: 2021_06_05_130318) do
 
   create_table "purchases", force: :cascade do |t|
     t.string "purchaser_name"
     t.string "item_description"
     t.float "item_price"
     t.integer "purchase_count"
-    t.string "merchant_adderss"
+    t.string "merchant_address"
     t.string "merchant_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

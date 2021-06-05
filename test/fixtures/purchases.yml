@@ -5,7 +5,7 @@ one:
   item_description: MyString
   item_price: 1.5
   purchase_count: 1
-  merchant_adderss: MyString
+  merchant_address: MyString
   merchant_name: MyString
 
 two:
@@ -13,5 +13,5 @@ two:
   item_description: MyString
   item_price: 1.5
   purchase_count: 1
-  merchant_adderss: MyString
+  merchant_address: MyString
   merchant_name: MyString

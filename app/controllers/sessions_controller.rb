@@ -9,13 +9,6 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
   
-  def check_session
-    user = User.find_by({email: session[:user_email]})
-    unless user.valid?
-      :signout
-    end 
-  end
-  
   def signout
     session.delete :user_email
     redirect_to root_path
