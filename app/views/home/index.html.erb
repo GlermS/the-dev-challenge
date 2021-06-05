@@ -1,2 +1,27 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div id="container" class="content">
+  <div class="content">
+    <h1>The Dev Challenge</h1>
+    <% if logged_in? %>
+        <p><%= current_user%></p>
+    <% end %>
+    <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
+      <div class="field">
+        <%= form.label "Please, insert the data files" %>
+        <%= form.file_field :file%>
+      </div>
+      
+      <div class="actions">
+        <%= form.submit "Upload file", id:"form_submit"%>
+      </div>
+    <% end %>
+    
+    <div id="data">
+      <p>File total gross income: <span id="file_total_gross_income">0</span></p>
+      <p>All times total gross income: <span id="all_times_total_gross_income"><%= @all_times_total_gross_income%></span></p>
+    </div>
+    <div id="error">Error</div>
+  </div>
+  <%= button_to "Sign in with Google", "/auth/google_oauth2", method:"post" %>
+</div>
+
+<%= javascript_include_tag 'home'%>
