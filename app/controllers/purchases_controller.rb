@@ -1,33 +1,52 @@
 class PurchasesController < ApplicationController
   layout "api"
+  before_action :check_login
   after_action :change_header
- 
-
-  def post_file
-    purchases = params[:purchase][:file]
-    items = parse_text(purchases.read)
-    @gross_income = 0
-    unless items.empty?
-        items.each do |item|
-          @gross_income = @gross_income + item[:item_price]*item[:purchase_count]
-          Purchase.create(item)
+  
+  def post_file(user=@current_user, req_params=params)
+    if @current_user != nil
+      items = receive_file_and_parse req_params[:purchase][:file]
+      @gross_income = 0
+      unless items.empty?
+          items.each do |item|
+            @gross_income = @gross_income + income(item)
+            item[:user_id]= @current_user[:id]
+            Purchase.create(item)
+          end
+          get_all_time
+          @gross_income
+      else
+        respond_to do |format|
+          format.any { render :json => {:response => 'No purchase found'}, :status => :bad_request  }
         end
-        get_all_time
-        @gross_income
+      end
     else
       respond_to do |format|
-        format.any { render :json => {:response => 'No purchase found' },:status => :bad_request  }
+          format.any { render :json => {:response => 'Please, login first' },:status => :unauthorized  }
       end
     end
   end
 
-  def get_all_time
-    purchases = Purchase.all
+  def get_all_time(user=@current_user)
     @all_time_gross_income = 0
-    purchases.each do |item|
-      @all_time_gross_income = @all_time_gross_income + item.item_price.to_f*item.purchase_count.to_i
+    if user!= nil
+      purchases = Purchase.all
+      purchases.each do |item|
+        if item[:user_id]==user[:id]
+          @all_time_gross_income = @all_time_gross_income + income(item)
+        end
+      end
     end
     @all_time_gross_income
+  end
+  
+  private
+  def income(item)
+    item[:item_price]*item[:purchase_count]
+  end
+  
+  def receive_file_and_parse(file)
+    parse_text(file.read)
   end
   
   def parse_text(text)
@@ -67,7 +86,6 @@ class PurchasesController < ApplicationController
     items
   end
   
-  private
   def change_header
      response.set_header('Content-Type','application/json')
   end

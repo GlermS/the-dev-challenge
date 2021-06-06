@@ -1216,3 +1216,1810 @@ Processing by HomeController#index as HTML
   Rendered home/index.html.erb within layouts/application (3.2ms)
 Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.8ms)
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserIdToPurchase (20210605172638)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "purchases" ADD "user_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_purchases_on_user_id" ON "purchases" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605172638"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.8ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:01:59.325373', '2021-06-05 18:01:59.325373', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:01:59.325373', '2021-06-05 18:01:59.325373', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:01:59.329763', '2021-06-05 18:01:59.329763', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:01:59.329763', '2021-06-05 18:01:59.329763', 298486374)[0m
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:01:59 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558511d71d60 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-25654-np9kpp.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+Completed 401 Unauthorized in 7ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:01:59 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (1.7ms)
+Completed 200 OK in 103ms (Views: 93.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:01:59 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558510bd1a10 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-25654-og9ftb.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 401 Unauthorized in 3ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:01:59 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 67ms (Views: 41.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:01:59 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:01:59 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558512272d28 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-25654-lc4bt.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.2ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:05:54.086904', '2021-06-05 18:05:54.086904', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:05:54.086904', '2021-06-05 18:05:54.086904', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:05:54.091201', '2021-06-05 18:05:54.091201', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:05:54.091201', '2021-06-05 18:05:54.091201', 298486374)[0m
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:05:54 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 62ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:05:54 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 92ms (Views: 85.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+PurchasesControllerTest: test_should_post_post_file
+---------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:05:54 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558510ec37a0 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-25723-1huqqhe.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}, "auth_token"=>"eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imd1aS5lbmcuc2FudG9zQGdtYWlsLmNvbSJ9.BV5FMHU4BS5e0Mb5Q0vm8MZTtaEr2JUB4byH2B9fJLQ\neyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imd1aS5lbmcuc2FudG9zQGdtYWlsLmNvbSJ9.BV5FMHU4BS5e0Mb5Q0vm8MZTtaEr2JUB4byH2B9fJLQ"}
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:05:54 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558510bd0318 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-25723-15hl9qg.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:05:54 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:05:54 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558510bcdc80 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-25723-x09rs2.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+Completed 401 Unauthorized in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (5.9ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.7ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:24:47.060822', '2021-06-05 18:24:47.060822', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:24:47.060822', '2021-06-05 18:24:47.060822', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:24:47.064987', '2021-06-05 18:24:47.064987', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:24:47.064987', '2021-06-05 18:24:47.064987', 298486374)[0m
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:24:47 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 75ms (Views: 37.5ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:24:47 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055851250eac8 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26172-831liv.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+Completed 401 Unauthorized in 4ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:24:47 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:24:47 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 106ms (Views: 94.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:24:47 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00005585134f0540 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26172-1xt7yaj.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.9ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:26:32.125212', '2021-06-05 18:26:32.125212', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:26:32.125212', '2021-06-05 18:26:32.125212', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:26:32.130278', '2021-06-05 18:26:32.130278', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:26:32.130278', '2021-06-05 18:26:32.130278', 298486374)[0m
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:26:32 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.9ms)
+Completed 200 OK in 99ms (Views: 86.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:26:32 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00005585126d5118 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26215-drabmo.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:26:32 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 52ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:26:32 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558511d36800 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26215-14p88do.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:26:32 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (6.9ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (1.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (1.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:28:09.651977', '2021-06-05 18:28:09.651977', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:28:09.651977', '2021-06-05 18:28:09.651977', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:28:09.656038', '2021-06-05 18:28:09.656038', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:28:09.656038', '2021-06-05 18:28:09.656038', 298486374)[0m
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:28:09 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 61ms (Views: 28.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:28:09 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:28:09 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558510edd2b8 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26250-j5621v.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:28:09 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 105ms (Views: 95.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+PurchasesControllerTest: test_should_not_post_empty_post_file
+-------------------------------------------------------------
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:28:10 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558511eb72b0 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26250-p1q6rj.tab>, @original_filename="empty.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"empty.tab\"\r\nContent-Type: \r\nContent-Length: 0\r\n">}}
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.8ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:30:20.213747', '2021-06-05 18:30:20.213747', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:30:20.213747', '2021-06-05 18:30:20.213747', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:30:20.217864', '2021-06-05 18:30:20.217864', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:30:20.217864', '2021-06-05 18:30:20.217864', 298486374)[0m
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:30:20 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 74ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:30:20 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00005585121b1560 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26335-wl1ekj.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:30:20 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 95ms (Views: 87.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:30:20 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.1ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:31:56.076273', '2021-06-05 18:31:56.076273', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:31:56.076273', '2021-06-05 18:31:56.076273', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:31:56.080175', '2021-06-05 18:31:56.080175', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:31:56.080175', '2021-06-05 18:31:56.080175', 298486374)[0m
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:31:56 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.9ms)
+Completed 200 OK in 101ms (Views: 87.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:31:56 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 50ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:31:56 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558512550428 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26388-muhdkk.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}, "auth_token"=>"eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imd1aS5lbmcuc2FudG9zQGdtYWlsLmNvbSJ9.BV5FMHU4BS5e0Mb5Q0vm8MZTtaEr2JUB4byH2B9fJLQ"}
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:31:56 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.1ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:33:39.352171', '2021-06-05 18:33:39.352171', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:33:39.352171', '2021-06-05 18:33:39.352171', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:33:39.356464', '2021-06-05 18:33:39.356464', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:33:39.356464', '2021-06-05 18:33:39.356464', 298486374)[0m
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:33:39 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 63ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:33:39 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 92ms (Views: 84.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:33:39 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.6ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:34:45.486711', '2021-06-05 18:34:45.486711', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:34:45.486711', '2021-06-05 18:34:45.486711', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:34:45.490797', '2021-06-05 18:34:45.490797', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:34:45.490797', '2021-06-05 18:34:45.490797', 298486374)[0m
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:34:45 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 64ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:34:45 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:34:45 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 97ms (Views: 89.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.8ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.9ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:35:20.492308', '2021-06-05 18:35:20.492308', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:35:20.492308', '2021-06-05 18:35:20.492308', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:35:20.496628', '2021-06-05 18:35:20.496628', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:35:20.496628', '2021-06-05 18:35:20.496628', 298486374)[0m
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:35:20 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 74ms (Views: 37.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:35:20 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:35:20 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (1.0ms)
+Completed 200 OK in 92ms (Views: 85.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.4ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:35:55.128321', '2021-06-05 18:35:55.128321', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:35:55.128321', '2021-06-05 18:35:55.128321', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:35:55.132523', '2021-06-05 18:35:55.132523', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:35:55.132523', '2021-06-05 18:35:55.132523', 298486374)[0m
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:35:55 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.9ms)
+Completed 200 OK in 106ms (Views: 91.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:35:55 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 56ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:35:55 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.5ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:36:21.452948', '2021-06-05 18:36:21.452948', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:36:21.452948', '2021-06-05 18:36:21.452948', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:36:21.457247', '2021-06-05 18:36:21.457247', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:36:21.457247', '2021-06-05 18:36:21.457247', 298486374)[0m
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:36:21 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 61ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:36:21 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 93ms (Views: 86.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:36:21 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.6ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:37:00.888876', '2021-06-05 18:37:00.888876', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:37:00.888876', '2021-06-05 18:37:00.888876', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:37:00.892878', '2021-06-05 18:37:00.892878', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:37:00.892878', '2021-06-05 18:37:00.892878', 298486374)[0m
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:37:01 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.9ms)
+Completed 200 OK in 86ms (Views: 74.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:37:01 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 40ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:37:01 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.1ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.7ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:37:10.773218', '2021-06-05 18:37:10.773218', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:37:10.773218', '2021-06-05 18:37:10.773218', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:37:10.778775', '2021-06-05 18:37:10.778775', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:37:10.778775', '2021-06-05 18:37:10.778775', 298486374)[0m
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:37:10 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 64ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:37:11 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 91ms (Views: 83.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:37:11 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.4ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:37:21.743999', '2021-06-05 18:37:21.743999', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:37:21.743999', '2021-06-05 18:37:21.743999', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:37:21.748947', '2021-06-05 18:37:21.748947', 980190962)[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:37:21.748947', '2021-06-05 18:37:21.748947', 298486374)[0m
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:37:21 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.9ms)
+Completed 200 OK in 120ms (Views: 99.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:37:22 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 51ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:37:22 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (5.6ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:37:49.710399', '2021-06-05 18:37:49.710399', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:37:49.710399', '2021-06-05 18:37:49.710399', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:37:49.714943', '2021-06-05 18:37:49.714943', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:37:49.714943', '2021-06-05 18:37:49.714943', 298486374)[0m
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:37:49 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 63ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:37:49 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.5ms)
+Completed 200 OK in 81ms (Views: 75.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:37:50 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.8ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:38:07.808946', '2021-06-05 18:38:07.808946', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:38:07.808946', '2021-06-05 18:38:07.808946', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:38:07.812892', '2021-06-05 18:38:07.812892', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:38:07.812892', '2021-06-05 18:38:07.812892', 298486374)[0m
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:38:07 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.8ms)
+Completed 200 OK in 92ms (Views: 77.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:38:08 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 42ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:38:08 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x0000558513768a20 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26699-1l71cqx.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}, "auth_token"=>"eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3QudGhlZGV2Y2hhbGxlbmdlQGdtYWlsLmNvbSJ9.C7UAAYlKO_93n4GM9Hs9f8NpU0-UwHUDSf5wSkVGqIE"}
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:38:08 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.2ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:40:10.380404', '2021-06-05 18:40:10.380404', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:40:10.380404', '2021-06-05 18:40:10.380404', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:40:10.384683', '2021-06-05 18:40:10.384683', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:40:10.384683', '2021-06-05 18:40:10.384683', 298486374)[0m
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:40:10 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 64ms (Views: 32.2ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:40:10 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00005585125155f8 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26730-2r14fx.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}, "auth_token"=>"eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3QudGhlZGV2Y2hhbGxlbmdlQGdtYWlsLmNvbSJ9.C7UAAYlKO_93n4GM9Hs9f8NpU0-UwHUDSf5wSkVGqIE"}
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:40:10 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 96ms (Views: 87.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:40:10 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.7ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:41:20.819318', '2021-06-05 18:41:20.819318', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:41:20.819318', '2021-06-05 18:41:20.819318', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:41:20.824597', '2021-06-05 18:41:20.824597', 980190962)[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:41:20.824597', '2021-06-05 18:41:20.824597', 298486374)[0m
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:41:20 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 65ms (Views: 28.7ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:41:21 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00007fb6bc046a08 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26770-1g63w6j.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+Completed 401 Unauthorized in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:41:21 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 90ms (Views: 77.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:41:21 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.9ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:43:50.260004', '2021-06-05 18:43:50.260004', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:43:50.260004', '2021-06-05 18:43:50.260004', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:43:50.263879', '2021-06-05 18:43:50.263879', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:43:50.263879', '2021-06-05 18:43:50.263879', 298486374)[0m
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:43:50 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.9ms)
+Completed 200 OK in 89ms (Views: 75.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:43:50 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 40ms (Views: 24.2ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:43:50 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x00005585126faa58 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26805-lvrrnv.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:43:50 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.1ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.7ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.8ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:44:26.747796', '2021-06-05 18:44:26.747796', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:44:26.747796', '2021-06-05 18:44:26.747796', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:44:26.751695', '2021-06-05 18:44:26.751695', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:44:26.751695', '2021-06-05 18:44:26.751695', 298486374)[0m
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:44:26 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 58ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:44:26 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 99ms (Views: 91.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:44:27 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.1ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:44:36.905108', '2021-06-05 18:44:36.905108', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 18:44:36.905108', '2021-06-05 18:44:36.905108', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:44:36.908532', '2021-06-05 18:44:36.908532', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 18:44:36.908532', '2021-06-05 18:44:36.908532', 298486374)[0m
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UserFlowsTest: test_user_uploading_file
+---------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:44:37 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 54ms (Views: 26.7ms | ActiveRecord: 0.0ms)
+Started POST "/purchases/post_file" for 127.0.0.1 at 2021-06-05 18:44:37 +0000
+Processing by PurchasesController#post_file as HTML
+  Parameters: {"purchase"=>{"file"=>#<ActionDispatch::Http::UploadedFile:0x000055851251eef0 @tempfile=#<Tempfile:/tmp/RackMultipart20210605-26839-507j5o.tab>, @original_filename="example_input.tab", @content_type="", @headers="Content-Disposition: form-data; name=\"purchase[file]\"; filename=\"example_input.tab\"\r\nContent-Type: \r\nContent-Length: 381\r\n">}}
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 18:44:37 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 87ms (Views: 78.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 18:44:37 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.5ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.9ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:05:14.965220', '2021-06-05 20:05:14.965220', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:05:14.965220', '2021-06-05 20:05:14.965220', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:05:14.969695', '2021-06-05 20:05:14.969695', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:05:14.969695', '2021-06-05 20:05:14.969695', 298486374)[0m
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_post_file
+----------------------------------------------
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 20:05:15 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (1.4ms)
+Completed 200 OK in 124ms (Views: 106.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 20:05:15 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 61ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.5ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:07:40.921855', '2021-06-05 20:07:40.921855', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:07:40.921855', '2021-06-05 20:07:40.921855', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:07:40.925546', '2021-06-05 20:07:40.925546', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:07:40.925546', '2021-06-05 20:07:40.925546', 298486374)[0m
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 20:07:41 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 60ms (Views: 26.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_post_file
+----------------------------------------------
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 20:07:41 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.4ms)
+Completed 200 OK in 81ms (Views: 74.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (5.4ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:08:47.835883', '2021-06-05 20:08:47.835883', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:08:47.835883', '2021-06-05 20:08:47.835883', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:08:47.839748', '2021-06-05 20:08:47.839748', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:08:47.839748', '2021-06-05 20:08:47.839748', 298486374)[0m
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 20:08:47 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (1.0ms)
+Completed 200 OK in 96ms (Views: 83.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_post_file
+----------------------------------------------
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 20:08:48 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 57ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (5.2ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:09:19.565160', '2021-06-05 20:09:19.565160', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:09:19.565160', '2021-06-05 20:09:19.565160', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:09:19.569365', '2021-06-05 20:09:19.569365', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:09:19.569365', '2021-06-05 20:09:19.569365', 298486374)[0m
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 20:09:19 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (1.3ms)
+Completed 200 OK in 100ms (Views: 87.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_post_file
+----------------------------------------------
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 20:09:19 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 63ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (5.7ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:10:14.501746', '2021-06-05 20:10:14.501746', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:10:14.501746', '2021-06-05 20:10:14.501746', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:10:14.505809', '2021-06-05 20:10:14.505809', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:10:14.505809', '2021-06-05 20:10:14.505809', 298486374)[0m
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 20:10:14 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (1.5ms)
+Completed 200 OK in 95ms (Views: 81.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_post_file
+----------------------------------------------
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 20:10:14 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 55ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.0ms)[0m  [1m[31mDELETE FROM "purchases"[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mFixture Insert (0.7ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:20:36.108938', '2021-06-05 20:20:36.108938', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "purchases" ("purchaser_name", "item_description", "item_price", "purchase_count", "merchant_address", "merchant_name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1.5, 1, 'MyString', 'MyString', '2021-06-05 20:20:36.108938', '2021-06-05 20:20:36.108938', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:20:36.112841', '2021-06-05 20:20:36.112841', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2021-06-05 20:20:36.112841', '2021-06-05 20:20:36.112841', 298486374)[0m
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+PurchasesControllerTest: test_right_income
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+PurchasesControllerTest: test_should_get_get_all_time
+-----------------------------------------------------
+Started GET "/purchases/get_all_time" for 127.0.0.1 at 2021-06-05 20:20:36 +0000
+Processing by PurchasesController#get_all_time as HTML
+  Rendering purchases/get_all_time.html.erb
+  Rendered purchases/get_all_time.html.erb (0.9ms)
+Completed 200 OK in 105ms (Views: 90.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+PurchasesControllerTest: test_should_not_read_empty_file
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+PurchasesControllerTest: test_should_not_parse_random_text
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+PurchasesControllerTest: test_should_parse_correctly
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PurchasesControllerTest: test_should_read_file
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-06-05 20:20:36 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 49ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m

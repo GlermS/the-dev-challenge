@@ -3,7 +3,10 @@
     <h1>The Dev Challenge</h1>
     <% if logged_in? %>
         <p>Hello, <%= current_user[:name]%>!</p>
+    <% else %>
+        <p>Login before sending your file</p>
     <% end %>
+    
     <%= form_with(model: @purchase,url: purchases_post_file_path, method: :post) do |form| %>
       <div class="field">
         <%= form.label "Please, insert the data files" %>
