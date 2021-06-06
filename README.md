@@ -89,7 +89,7 @@ To work with Rails, it is necessary to install de following prerequisites:
   Check installed version
 
   ```bash
-  >>> ruby -v
+  >> ruby -v
   ```
 
 * SQLite3 -Installation guide: https://servermania.com/kb/articles/install-sqlite/
@@ -97,7 +97,7 @@ To work with Rails, it is necessary to install de following prerequisites:
   Check installed version
 
   ```bash
-  >>> sqlite -v
+  >> sqlite -v
   ```
 
 * Node.js - Download: https://nodejs.org/en/download/
@@ -105,7 +105,7 @@ To work with Rails, it is necessary to install de following prerequisites:
   Check installed version
 
   ```bash
-  >>> node -v
+  >> node -v
   ```
 
 * Yarn - Installation guide https://classic.yarnpkg.com/en/docs/install#windows-stable
@@ -113,13 +113,13 @@ To work with Rails, it is necessary to install de following prerequisites:
   Check installed version
 
   ```bash
-  yarn -v
+  >> yarn -v
   ```
 
 Install Rails:
 
 ```bash
->>> gem install rails -v 5.2.6
+>> gem install rails -v 5.2.6
 ```
 
 
