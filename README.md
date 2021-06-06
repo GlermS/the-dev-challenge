@@ -6,6 +6,8 @@ Access the application: https://the-dev-challenge.herokuapp.com/
 
 GitHub repository: https://github.com/GlermS/the-dev-challenge
 
+This application reads purchase files (tab separated) and counts the total gross income of each file and total all-time gross income, according to the current user.
+
 ## Settings
 
 ### Language, libraries and frameworks
@@ -40,6 +42,7 @@ This project was made using the Ruby on Rails framework. Consequently, the MVC p
 
 The first model was created which represents the purchases (each line of the file). The data was persisted in the database, with the following fields:
 
+* id: integer
 * purchaser_name: string
 * item_description: string
 * item_price: float
@@ -47,8 +50,16 @@ The first model was created which represents the purchases (each line of the fil
 * merchant_address: string
 * merchant_name: string
 * user_id: integer
+* created_at: datetime
+* updated_at: datetime
 
-The second model represents the
+The second model represents the users. The data was persisted in the database, with the following fields:
+
+* id: integer
+* name: string
+* email: string
+* created_at: datetime
+* updated_at: datetime
 
 The database setting and migrations are saved in the folder "db". The model class is defined in the folder "app/models".
 
@@ -69,42 +80,43 @@ The authentication token is encoded using JWT which contains the user email in t
 To start the development database, run the following code on the terminal:
 
 ```bash
-rails db:migrate RAILS_ENV=development
+>> rsails db:migrate RAILS_ENV=development
 ```
 
 In order to start the development server, run the following server:
 
 ```bash
-rails s -e development
+>> rails s -e development
 ```
 
 ## Tests
 
-The test files are saved in de folders "/test". Each model and controller was tested and also the user uploading file flow. In addition, the example file plus two alterations were saved in the "/test/fixtures" to be used during tests.
+The test files are saved in de folders "/test". In addition, the example file plus three alterations were saved in the "/test/fixtures" to be used during tests.
 
 To run the tests, it must start the database in the test environment by the following code:
 
 ```bash
-rails db:migrate RAILS_ENV=test
+>> rails db:migrate RAILS_ENV=test
 ```
 
 And then, run the following code:
 
 ```bash
-rails t
+>> rails t
 
 ## Production Environment
 
 In order to start a local production server, it must start the database in the environment by the following code:
 
 ```bash
-rails db:migrate RAILS_ENV=production
+>> rails db:migrate RAILS_ENV=production
 ```
 
 And then, run the following:
 
 ```bash
-rails s -e production
+>> rails assets:precompile RAILS_ENV=production
+>> rails s -e production
 ```
 
 ### Heroku
@@ -116,13 +128,13 @@ https://devcenter.heroku.com/articles/getting-started-with-rails5
 Run the following command before using `git push heroku master` to change the Heroku's stack:
 
 ```bash
-heroku stack:set heroku-18
+>> heroku stack:set heroku-18
 ```
 
 Then start the database with the following command:
 
 ```bash
-heroku run rails db:migrate
+>> heroku run rails db:migrate
 ```
 
 
