@@ -1,8 +1,10 @@
 # Documentation - The Dev Challenge
 
-author: Guilherme Santos Souza
+Author: Guilherme Santos Souza
 
 Access the application: https://the-dev-challenge.herokuapp.com/
+
+GitHub repository: https://github.com/GlermS/the-dev-challenge
 
 ## Settings
 
@@ -15,6 +17,7 @@ Access the application: https://the-dev-challenge.herokuapp.com/
 * omniauth-rails_csrf_protection
 * omniauth-google-oauth2 - authentication
 * dotenv-rails
+* jwt
 
 **Javascript**
 
@@ -35,7 +38,7 @@ This project was made using the Ruby on Rails framework. Consequently, the MVC p
 
 ### Models
 
-One model was created which represents the purchases (each line of the file). The data was persisted in a Sqlite3 database, with the following fields:
+The first model was created which represents the purchases (each line of the file). The data was persisted in the database, with the following fields:
 
 * purchaser_name: string
 * item_description: string
@@ -43,6 +46,9 @@ One model was created which represents the purchases (each line of the file). Th
 * purchase_count: integer
 * merchant_address: string
 * merchant_name: string
+* user_id: integer
+
+The second model represents the
 
 The database setting and migrations are saved in the folder "db". The model class is defined in the folder "app/models".
 
@@ -54,7 +60,9 @@ The controller **home** only receives the GET request from the route "/". The co
 
 The controller **purchases** receives a POST request from the route "/purchases/post_file" with the ".tab" file, processes the text, and determines the total gross income. In this case, the response is a ''.json' file that contains de gross income values.
 
-The controller **sessions** receives a GET request from the route "/auth/google-oauth2/callback " with the data from the Google authentication api mediated by the omniauth middleware and finish session. In this case there is no view, the interaction is made via cookies. The api key are saved in the ".env file"
+The controller **sessions** receives a GET request from the route "/auth/google-oauth2/callback " with the data from the Google Authentication api mediated by the omniauth middleware and finish session. In this case there is no view, the interaction is made via cookies. The api key are saved in the ".env file"
+
+The authentication token is encoded using JWT which contains the user email in the payload. The Rails' sessions also encrypt the cookies data, reinforcing protection of sensitive data.
 
 ## Development Environment
 
@@ -78,12 +86,12 @@ To run the tests, it must start the database in the test environment by the foll
 
 ```bash
 rails db:migrate RAILS_ENV=test
+```
 
 And then, run the following code:
 
 ```bash
 rails t
-```
 
 ## Production Environment
 
