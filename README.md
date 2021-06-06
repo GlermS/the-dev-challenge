@@ -103,6 +103,7 @@ And then, run the following code:
 
 ```bash
 >> rails t
+```
 
 ## Production Environment
 
