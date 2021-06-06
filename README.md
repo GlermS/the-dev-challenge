@@ -15,11 +15,14 @@ This application reads purchase files (tab separated) and counts the total gross
 **Ruby**
 
 * Ruby v2.5.0
+* Node.js v10.1.0
+* Yarn v1.22.10
 * Ruby on Rails v5.2.6
-* omniauth-rails_csrf_protection
-* omniauth-google-oauth2 - authentication
-* dotenv-rails
-* jwt
+* Gems:
+  * omniauth-rails_csrf_protection
+  * omniauth-google-oauth2 - authentication
+  * dotenv-rails
+  * jwt
 
 **Javascript**
 
@@ -76,6 +79,50 @@ The controller **sessions** receives a GET request from the route "/auth/google-
 The authentication token is encoded using JWT which contains the user email in the payload. The Rails' sessions also encrypt the cookies data, reinforcing protection of sensitive data.
 
 The api keys and the JWT secret are saved in the ".env file".
+
+## Setup environment
+
+To work with Rails, it is necessary to install de following prerequisites:
+
+* Ruby- Installation guide: https://www.ruby-lang.org/en/documentation/installation/
+
+  Check installed version
+
+  ```bash
+  >>> ruby -v
+  ```
+
+* SQLite3 -Installation guide: https://servermania.com/kb/articles/install-sqlite/
+
+  Check installed version
+
+  ```bash
+  >>> sqlite -v
+  ```
+
+* Node.js - Download: https://nodejs.org/en/download/
+
+  Check installed version
+
+  ```bash
+  >>> node -v
+  ```
+
+* Yarn - Installation guide https://classic.yarnpkg.com/en/docs/install#windows-stable
+
+  Check installed version
+
+  ```bash
+  yarn -v
+  ```
+
+Install Rails:
+
+```bash
+>>> gem install rails -v 5.2.6
+```
+
+
 
 ## Development Environment
 
