@@ -82,7 +82,7 @@ The api keys and the JWT secret are saved in the ".env file".
 To start the development database, run the following code on the terminal:
 
 ```bash
->> rsails db:migrate RAILS_ENV=development
+>> rails db:migrate RAILS_ENV=development
 ```
 
 In order to start the development server, run the following server:
