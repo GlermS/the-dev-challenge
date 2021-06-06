@@ -65,15 +65,17 @@ The database setting and migrations are saved in the folder "db". The model clas
 
 ### Views and Controllers
 
-Views and controllers are both responsible for client interaction. Tree controllers were created, one to receive the first request plus respond with the home page HTML, the second to process the request from the form and the third controls sessions. The two first controllers have a set of views to respond to the client. All of them are located in the "app" folder.
+Views and controllers are both responsible for client interaction. Three controllers were created, one to receive the first request plus respond with the home page HTML, the second to process the request from the form and the third controls sessions. The two first controllers have a set of views to respond to the client. All of them are located in the "app" folder.
 
 The controller **home** only receives the GET request from the route "/". The corresponding view is an *HTML* page and its JS and CSS files are saved in the folder "lib/assets". 
 
 The controller **purchases** receives a POST request from the route "/purchases/post_file" with the ".tab" file, processes the text, and determines the total gross income. In this case, the response is a ''.json' file that contains de gross income values.
 
-The controller **sessions** receives a GET request from the route "/auth/google-oauth2/callback " with the data from the Google Authentication api mediated by the omniauth middleware and finish session. In this case there is no view, the interaction is made via cookies. The api key are saved in the ".env file"
+The controller **sessions** receives a GET request from the route "/auth/google-oauth2/callback " with the data from the Google Authentication api mediated by the omniauth middleware and finish session. In this case there is no view, the interaction is made via cookies and the user is redirected to home. 
 
 The authentication token is encoded using JWT which contains the user email in the payload. The Rails' sessions also encrypt the cookies data, reinforcing protection of sensitive data.
+
+The api keys and the JWT secret are saved in the ".env file".
 
 ## Development Environment
 
